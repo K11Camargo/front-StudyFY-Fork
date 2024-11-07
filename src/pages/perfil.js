@@ -4,6 +4,7 @@ import Navegacao from '../components/Navegacao';
 import TituloTela from '../styles/tituloTela';
 import fotousuario from '../assets/fotousuario.png';
 import pontos from '../assets/pontos.png';
+import configuracao from '../assets/configuracoes.png';
 import calendario from '../assets/calendario.png';
 import medalhaDeOuro from '../assets/medalhaDeOuro.png';
 import correto from '../assets/correto.png';
@@ -13,11 +14,18 @@ import TomHolland from '../assets/tomholland.png'
 import Pessoas from '../assets/Pessoas.png';
 import Estrela from '../assets/estrela.png'
 import EstrelaMetade from '../assets/estrelametade.png'
+import MedalhaEmblema from '../assets/MedalhaEmblema.png'
+import CorujaEmblema from '../assets/mascote.png'
+import LivrosEmblema from '../assets/LivrosEmblema.png'
 
 
 const Perfil = () => (
   <Container style={{ backgroundColor: 'white', display: 'flex', flexDirection: 'column', height: '100vh' }}>
-    <TituloTela style={{ marginBottom: '0' }}>Perfil</TituloTela>
+
+    {/* Linkar com a tela de configuracao de perfil */}
+        <img src={configuracao} alt="Foto do Usuário" style={{position:'absolute', alignSelf:'end',height: '3vh', width: '3vh', }}/>
+    <TituloTela style={{ marginBottom: '0',textAlign:'center' }}>Perfil</TituloTela>
+
 
     <div style={{ width: '100%', height: 'calc(100vh - 100px)', overflowY: 'auto', paddingBottom: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'center', height: '30%', width: '100%', flexDirection: 'column', alignItems: 'center', padding: '10px' }}>
@@ -34,25 +42,36 @@ const Perfil = () => (
 
       <div style={{ width: '1px', height: '3%' }}></div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', width: '90%', marginBottom: '20px' }}>
-        <div style={{ display: 'flex', height: '20vh', width: '100%' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column', height: '20vh', width: '50%' }}>
-            <div><h2 style={{ fontSize: '18px' }}>Estudando</h2><p>História</p></div>
-            <div><h2 style={{ fontSize: '18px' }}>Série</h2><p>3º - Fundamental 1</p></div>
-            <div><h2 style={{ fontSize: '18px' }}>Assunto no momento</h2><p>Segunda Guerra Mundial</p></div>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'end', height: '20vh', width: '30%' }}>
-            <div style={{ display: 'flex', width: '90%' }}>
-              <div style={{ flex: 1 }}>
-                <h2 style={{ fontSize: '18px', height: '60px' }}>Aluno/Mentor</h2>
-                <button style={{ backgroundColor: '#FEE101', height: '42px', width: '88px', border: 'black', padding: '5px', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer', marginTop: 'auto' }}>Ver grupo <br /> de mentoria</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', width: '90%' }}>
+  <div style={{ display: 'flex', height: '20vh', width: '100%' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column', height: '20vh', width: '50%' }}>
+      <div><h2 style={{ fontSize: '18px' }}>Estudando</h2><p>História</p></div>
+      <div><h2 style={{ fontSize: '18px' }}>Série</h2><p>3º - Fundamental 1</p></div>
+      <div><h2 style={{ fontSize: '18px' }}>Assunto no momento</h2><p>Segunda Guerra Mundial</p></div>
+    </div>
+    <div style={{ display: 'flex', width: '50%', flexDirection: 'column', alignItems: 'end' }}>
+      <h2 style={{ fontSize: '18px' }}>Aluno/Mentor</h2>
+      <button style={{
+        backgroundColor: '#FEE101',
+        marginTop:'15%',
+        height: '42px',
+        width: '88px',
+        border: 'none',
+        borderRadius: '5px',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        justifySelf:'end',
+        border: '1px solid',
+        borderBottom: '3px solid',
+        textAlign: 'center'
+      }}>
+        Ver grupo de mentoria
+      </button>
+    </div>
+  </div>
 
         <div style={{ width: '100%', marginTop: '15%' }}>
-          <h1 style={{ marginTop:'10%',fontSize: '28px', textAlign: 'left', color: 'black' }}>Desempenho</h1>
+          <h1 style={{ marginTop:'5%',fontSize: '28px', textAlign: 'left', color: 'black' }}>Desempenho</h1>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderRadius: '12px', border: '1px solid #E0E0E0', overflow: 'hidden', marginTop: '10px' }}>
             {[{img: medalhaDeOuro, alt: "Medalha de Ouro", title: "Rank Recorde", subtitle: "Ouro III"}, {img: pontos, alt: "Pontos", title: "Pontos", subtitle: "210"}, {img: calendario, alt: "Sem Parar", title: "Sem parar!", subtitle: "14 dias"}, {img: correto, alt: "Atividades Feitas", title: "Atividades feitas", subtitle: "20"}].map((item, index) => (
               <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '15px', borderBottom: index < 2 ? '1px solid #E0E0E0' : '', borderRight: index % 2 === 0 ? '1px solid #E0E0E0' : '', textAlign: 'center' }}>
@@ -65,7 +84,7 @@ const Perfil = () => (
         </div>
 
 
-          <h1 style={{marginTop:'15%'}}>Rank - Alunos</h1>
+          <h1 style={{fontSize: '28px', marginTop:'15%'}}>Rank - Alunos</h1>
           <div style={{ display: 'flex', flexDirection: 'column', height: '30vh', width: '100%', marginTop:'5%' }}>
 
             <div style={{ display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'center' }}>
@@ -94,7 +113,7 @@ const Perfil = () => (
                   
 
           <div style={{ display: 'flex', flexDirection: 'column', }}>
-            <h1 style={{ fontSize: '24px', color: '#333' }}>Rank - Mentor</h1>
+            <h1 style={{fontSize: '28px', marginTop:'5%' , color: '#333' }}>Rank - Mentor</h1>
 
             <div style={{ display: 'flex', gap: '2%', marginTop: '20px' }}>
               
@@ -105,7 +124,7 @@ const Perfil = () => (
                   {[...Array(4)].map((_, i) => (
                     <img key={i} src={Estrela} alt="Estrela" style={{ width: '20px', height: '20px', marginRight: '5px' }} />
                   ))}
-                  <img src={EstrelaMetade} alt="Meia Estrela" style={{ width: '20px', height: '20px' }} />
+                  <img src={EstrelaMetade} alt="Meia Estrela" style={{ width: '10px', height: '20px' }} />
                 </div>
                 <p style={{ fontSize: '14px', color: '#666' }}>(130 avaliações)</p>
                 
@@ -160,7 +179,38 @@ const Perfil = () => (
             </div>
           </div>
 
+                  <div style={{height:'30vh', width:'100%', marginTop:'5vh'}}>
+                  <h1 style={{fontSize: '32px'}}>Emblemas</h1>
+             
+                  <div style={{ width: '90%', marginTop: '20px' }}>
 
+        <div style={{ display: 'inline-flex',alignContent:'Center', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginTop: '10px',overflowX:'scroll', maxWidth:'100%' }}>
+          {/* Emblema 1 */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#a7dcff', borderRadius: '8px', padding: '10px' }}>
+            <img src={MedalhaEmblema} alt="Medalha" style={{ width: '10vh', height: '10vh' }} />
+            <p style={{ fontSize: '18px', fontWeight:'Bold',color: '#333', marginTop: '5px' }}>Nível 1</p>
+          </div>
+          {/* Emblema 2 */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#90f7a7', borderRadius: '8px', padding: '10px' }}>
+            <img src={LivrosEmblema} alt="Livros" style={{ width: '10vh', height: '10vh' }} />
+            <p style={{ fontSize: '18px',fontWeight:'Bold', color: '#333', marginTop: '5px' }}>Nível 1</p>
+          </div>
+          {/* Emblema 3 */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#fef5a7', borderRadius: '8px', padding: '10px', opacity: 0.5 }}>
+            <img src={CorujaEmblema} alt="Coruja" style={{ width: '10vh', height: '10vh' }} />
+            <p style={{ fontSize: '18px',fontWeight:'Bold', color: '#333', marginTop: '5px' }}>Nível 1</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#fef5a7', borderRadius: '8px', padding: '10px', opacity: 0.5 }}>
+            <img src={CorujaEmblema} alt="Coruja" style={{ width: '10vh', height: '10vh' }} />
+            <p style={{ fontSize: '18px',fontWeight:'Bold', color: '#333', marginTop: '5px' }}>Nível 1</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#fef5a7', borderRadius: '8px', padding: '10px', opacity: 0.5 }}>
+            <img src={CorujaEmblema} alt="Coruja" style={{ width: '10vh', height: '10vh' }} />
+            <p style={{ fontSize: '18px',fontWeight:'Bold', color: '#333', marginTop: '5px' }}>Nível 1</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
         
