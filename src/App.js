@@ -26,7 +26,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element= {<PerfilAluno/>} />
-          <Route path='/Perfil' element={<Perfil/>} />
+          <Route path='/PerfilAluno' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
           <Route path='/Perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />

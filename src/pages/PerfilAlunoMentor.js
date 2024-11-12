@@ -91,25 +91,24 @@ const Perfil = () => {
 
 
               <h1 style={{ fontSize: '28px', marginTop: '15%' }}>Rank - Alunos</h1>
-              <div style={{ display: 'flex', flexDirection: 'column', height: '30vh', width: '100%', marginTop: '5%' }}>
-
+              <div style={{ display: 'flex', flexDirection: 'column',height: '30vh', width: '100%', marginTop: '5%' }}>
                 <div style={{ display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'center' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <img src={BronzeDois} alt="Medalha Bronze II" style={{ width: '15vh', height: '20vh' }} />
                     <h2 style={{ fontSize: '24px', color: '#A96224', marginTop: '10px' }}>Bronze II</h2>
                   </div>
 
-                  <div style={{ width: '25vh', height: '19.5vh', marginLeft: '10%', border: '1px solid #E0E0E0', overflow: 'hidden' }}>
+                  <div style={{width: '30vh', height: '19.5vh', marginLeft: '25vh', border: '1px solid #E0E0E0', overflow: 'hidden' }}>
                     {[{ rank: 9, name: "Grande eweww...", points: "271pts", image: GrandEwe },
                     { rank: 10, name: "Silvia Santos", points: "210pts", image: fotousuario },
                     { rank: 11, name: "Tom Holland", points: "189pts", image: TomHolland }].map((user, index) => (
 
                       <div key={index} style={{ display: 'flex', alignItems: 'center', height: '6.5vh', backgroundColor: index % 2 === 0 ? '#F9F9F9' : '#D9D9D9' }}>
 
-                        <span style={{ width: '20%', textAlign: 'center', fontWeight: 'bold', color: '#333' }}>#{user.rank}</span>
+                        <span style={{ width: '20%', textAlign: 'center', fontWeight: 'bold', color: '#333',  }}>#{user.rank}</span>
                         <img src={user.image} alt={user.name} style={{ width: '30px', height: '30px', borderRadius: '50%' }} />
                         <span style={{ flex: 1, fontSize: '12px', color: '#333' }}>{user.name}</span>
-                        <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{user.points}</span>
+                        <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333', marginRight:'1vh' }}>{user.points}</span>
                       </div>
                     ))}
                   </div>
@@ -124,7 +123,7 @@ const Perfil = () => {
                 <div style={{ display: 'flex', gap: '2%', marginTop: '20px' }}>
 
                   {/* Sessão de Avaliações */}
-                  <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', alignSelf: 'center', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
+                  <div style={{ flex: 1, backgroundColor: '#fff', padding: '20px', alignSelf: 'center', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)',  }}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       {/* Estrelas */}
                       {[...Array(4)].map((_, i) => (
@@ -152,7 +151,7 @@ const Perfil = () => {
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
                     {/* Pessoas Ajudadas */}
-                    <div style={{}}>
+                    <div style={{backgroundColor: '#fff', borderRadius: '8px',padding: '10px', boxShadow: '0 0 10px rgba(0,0,0,0.1)'}}>
                       <h2 style={{ fontSize: '16px', color: '#333', textAlign: 'center', marginBottom: '10px' }}>150 pessoas ajudadas</h2>
                       {[{ rank: 9, name: "Grande eweww...", points: "174", },
                       { rank: 10, name: "Silvia Santos", points: "150" },
@@ -167,7 +166,7 @@ const Perfil = () => {
                     </div>
 
                     {/* Estrelas */}
-                    <div style={{}}>
+                    <div style={{backgroundColor: '#fff', borderRadius: '8px',padding: '10px', boxShadow: '0 0 10px rgba(0,0,0,0.1)'}}>
                       <h2 style={{ fontSize: '16px', color: '#333', textAlign: 'center', marginBottom: '10px' }}>4.5 estrelas</h2>
                       {[{ rank: 9, name: "Grande eweww...", stars: "4.6", reviews: "88" },
                       { rank: 10, name: "Silvia Santos", stars: "4.5", reviews: "130" },
