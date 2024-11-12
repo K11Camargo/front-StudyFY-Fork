@@ -66,20 +66,7 @@ const Perfil = () => {
     </div>
     <div style={{ display: 'flex', width: '50%', flexDirection: 'column', alignItems: 'end' }}>
       <h2 style={{ fontSize: '18px' }}>Aluno/Mentor</h2>
-      <button style={{
-        backgroundColor: '#FEE101',
-        marginTop:'15%',
-        height: '42px',
-        width: '88px',
-        border: 'none',
-        borderRadius: '5px',
-        fontWeight: 'bold',
-        cursor: 'pointer',
-        justifySelf:'end',
-        border: '1px solid',
-        borderBottom: '3px solid',
-        textAlign: 'center'
-      }}>
+      <button onClick={() => navigate('/grupo-mentoria')} style={{backgroundColor: '#FEE101',marginTop:'15%',height: '42px',width: '88px',border: 'none',borderRadius: '5px',fontWeight: 'bold',cursor: 'pointer',justifySelf:'end',border: '1px solid',borderBottom: '3px solid',textAlign: 'center'}}>
         Ver grupo de mentoria
       </button>
     </div>
@@ -161,7 +148,7 @@ const Perfil = () => {
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 
                 {/* Pessoas Ajudadas */}
-                <div style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
+                <div style={{ }}>
                   <h2 style={{ fontSize: '16px', color: '#333', textAlign: 'center', marginBottom: '10px' }}>150 pessoas ajudadas</h2>
                   {[{ rank: 9, name: "Grande eweww...", points: "174",  }, 
                   { rank: 10, name: "Silvia Santos", points: "150" },
@@ -176,7 +163,7 @@ const Perfil = () => {
                 </div>
 
                 {/* Estrelas */}
-                <div style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.1)' }}>
+                <div style={{ }}>
                   <h2 style={{ fontSize: '16px', color: '#333', textAlign: 'center', marginBottom: '10px' }}>4.5 estrelas</h2>
                   {[{ rank: 9, name: "Grande eweww...", stars: "4.6", reviews: "88" },
                    { rank: 10, name: "Silvia Santos", stars: "4.5", reviews: "130" }, 
@@ -197,8 +184,7 @@ const Perfil = () => {
                   <div style={{height:'30vh', width:'100%', marginTop:'5vh'}}>
                   <h1 style={{fontSize: '32px'}}>Emblemas</h1>
                   {/* implementar aqui a navegação para a tela de emblemas */}
-                  <p>Ver todos</p>
-             
+                  <p onClick={() => navigate('/emblemas')} style={{ cursor: 'pointer', color: 'black', textDecoration:'underline' }}>Ver todos</p>             
                   <div style={{ width: '90%', marginTop: '20px' }}>
 
         <div style={{ display: 'inline-flex',alignContent:'Center', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginTop: '10px',overflowX:'scroll', maxWidth:'100%' }}>
@@ -224,15 +210,12 @@ const Perfil = () => {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#fef5a7', borderRadius: '8px', padding: '10px', opacity: 0.5 }}>
             <img src={CorujaEmblema} alt="Coruja" style={{ width: '10vh', height: '10vh' }} />
             <p style={{ fontSize: '18px',fontWeight:'Bold', color: '#333', marginTop: '5px' }}>Nível 1</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-        
-      </div>
-    </div>
+        </div>
 
     <Navegacao />
   </Container>

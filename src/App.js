@@ -11,7 +11,7 @@ import Ajuda from './pages/Ajuda';
 import CadernoVirtual from './pages/CadernoVirtual';
 import Notificacao from './pages/Notificacao';
 import Rank from './pages/Rank';
-import Perfil from './pages/PerfilAlunoMentor';
+import Perfil  from './pages/PerfilAlunoMentor';
 import PerfilAluno from './pages/PerfilAluno';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import MudarSenha from './pages/MudarSenha'

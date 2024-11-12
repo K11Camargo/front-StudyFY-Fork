@@ -29,13 +29,7 @@ const PerfilAluno = () => {
       <img
         src={configuracao}
         alt="Configurações"
-        style={{
-          position: 'absolute',
-          alignSelf: 'end',
-          height: '3vh',
-          width: '3vh',
-          cursor: 'pointer'
-        }}
+        style={{position: 'absolute',alignSelf: 'end',height: '3vh',width: '3vh',cursor: 'pointer'}}
         onClick={() => navigate('')}
       />
 
@@ -115,7 +109,7 @@ const PerfilAluno = () => {
                   <div style={{height:'30vh', width:'100%', marginTop:'5vh'}}>
                   <h1 style={{fontSize: '32px'}}>Emblemas</h1>
                   {/* implementar aqui a navegação para a tela de emblemas */}
-                  <p>Ver todos</p>
+                  <p onClick={() => navigate('/emblemas')} style={{ cursor: 'pointer', color: 'black', }}>Ver todos</p>             
              
                   <div style={{ width: '90%', marginTop: '20px' }}>
 
