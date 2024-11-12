@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Container from '../styles/telaCheia';
 import Navegacao from '../components/Navegacao';
 import TituloTela from '../styles/tituloTela';
@@ -19,11 +20,25 @@ import CorujaEmblema from '../assets/mascote.png'
 import LivrosEmblema from '../assets/LivrosEmblema.png'
 
 
-const Perfil = () => (
-  <Container style={{ backgroundColor: 'white', display: 'flex', flexDirection: 'column', height: '100vh' }}>
+const Perfil = () => {
+  const navigate = useNavigate();
 
-    {/* Linkar com a tela de configuracao de perfil */}
-        <img src={configuracao} alt="Foto do Usuário" style={{position:'absolute', alignSelf:'end',height: '3vh', width: '3vh', }}/>
+  return (
+    <Container style={{ backgroundColor: 'white', display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      {/* Ícone de Configurações que redireciona para a tela de configuração */}
+      <img
+        src={configuracao}
+        alt="Configurações"
+        style={{
+          position: 'absolute',
+          alignSelf: 'end',
+          height: '3vh',
+          width: '3vh',
+          cursor: 'pointer'
+        }}
+        onClick={() => navigate('')}
+      />
+
     <TituloTela style={{ marginBottom: '0',textAlign:'center' }}>Perfil</TituloTela>
 
 
@@ -181,6 +196,8 @@ const Perfil = () => (
 
                   <div style={{height:'30vh', width:'100%', marginTop:'5vh'}}>
                   <h1 style={{fontSize: '32px'}}>Emblemas</h1>
+                  {/* implementar aqui a navegação para a tela de emblemas */}
+                  <p>Ver todos</p>
              
                   <div style={{ width: '90%', marginTop: '20px' }}>
 
@@ -219,6 +236,6 @@ const Perfil = () => (
 
     <Navegacao />
   </Container>
-);
+);}
 
 export default Perfil;

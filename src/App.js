@@ -11,7 +11,8 @@ import Ajuda from './pages/Ajuda';
 import CadernoVirtual from './pages/CadernoVirtual';
 import Notificacao from './pages/Notificacao';
 import Rank from './pages/Rank';
-import Perfil from './pages/perfil';
+import Perfil from './pages/PerfilAlunoMentor';
+import PerfilAluno from './pages/PerfilAluno';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import MudarSenha from './pages/MudarSenha'
 import Emblemas from './pages/Emblemas';
@@ -24,10 +25,10 @@ function App() {
     <C.Container>
       <Router>
         <Routes>
-          <Route exact path='/' element= {<Perfil/>} />
-          <Route path='/perfil' element={<Perfil/>} />
+          <Route exact path='/' element= {<PerfilAluno/>} />
+          <Route path='/Perfil' element={<Perfil/>} />
           <Route exact path='/' element= {<GrupoMentoria/>} />
-          <Route path='/perfil' element={<Perfil/>}></Route>
+          <Route path='/Perfil' element={<Perfil/>}></Route>
           <Route path='/atividades' element= {<Atividades/>} />
           <Route path='/caderno-virtual' element= {<CadernoVirtual/>} />
           <Route path='/rank' element= {<Rank/>} />
