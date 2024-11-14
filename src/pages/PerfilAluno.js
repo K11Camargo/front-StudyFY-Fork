@@ -16,7 +16,7 @@ import { useMediaQuery } from '@mui/material';
 
 const Perfil = () => {
   const [user, setUser] = useState(null); // Estado para armazenar os dados do usuário
-  const [rank, setRank] = useState(null); // Estado para armazenar os dados do rank
+  const [rankAlunos, setRank] = useState([]); // Estado para armazenar os dados do rank
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const navigate = useNavigate();
 
@@ -31,19 +31,25 @@ const Perfil = () => {
           serie: aluno.serie,
           materias: aluno.materias.map(materia => materia.materia), // Pega os nomes das matérias
           pontos: aluno.pontos,
-          rankId: aluno.id_rank
+          rank: aluno.id_rank
         });
 
         // Buscando os dados do rank
         const rankResponse = await fetch(`http://localhost:8080/v1/studyfy/rank/aluno/${aluno.id}`);
         const rankData = await rankResponse.json();
+
+        console.log(rankData.sala);
         const alunoRank = rankData.sala[0]; // Pegando o primeiro item da lista de ranks
-        setRank({
-          rankPosicao: alunoRank.posicao,
-          rankId: alunoRank.id_rank,
-          rankImagem: alunoRank.caminho_imagem,
-          rankNome: alunoRank.nome_imagem
-        });
+        console.log(alunoRank.posicao);
+
+        setRank(rankData.sala)
+
+        // setRank({
+        //   rankPosicao: alunoRank.posicao,
+        //   rankId: alunoRank.id_rank,
+        //   rankImagem: alunoRank.caminho_imagem,
+        //   rankNome: alunoRank.nome_imagem
+        // });
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }
@@ -130,29 +136,26 @@ const Perfil = () => {
 
 
 
-
-
-
-
-
-
-
-
-
               <h1 style={{ fontSize: '28px', marginTop: '15%' }}>Rank - Alunos</h1>
               <div style={{ display: 'flex', flexDirection: 'column', height: '30vh', width: '100%', marginTop: '5%' }}>
                 <div style={{ display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
-                    <img src={BronzeDois} alt="Medalha Bronze II" style={{ width: '15vh', height: '20vh' }} />
-                    <h2 style={{ fontSize: '24px', color: '#A96224', marginTop: '10px' }}>
-                      {rank.rankNome || 'Rank Desconhecido'} {/* Exibe o nome do rank, se disponível */}
-                    </h2>
+                  {/* Seção do Rank do Usuário Atual */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    {/* {rank && (
+                      <>
+                        <img src={rank.rankImagem} alt={rank.rankNome} style={{ width: '15vh', height: '20vh' }} />
+                        <h2 style={{ fontSize: '24px', color: '#A96224', marginTop: '10px' }}>{rank.rankNome}</h2>
+                      </>
+                    )} */}
                   </div>
 
+
+                  {/* 
                   <div style={{ width: '30vh', height: '19.5vh', marginLeft: '25vh', border: '1px solid #E0E0E0', overflow: 'hidden' }}>
-                    {[{ rank: 9, name: "Grande eweww...", points: "271pts", image: GrandEwe },
-                    { rank: 10, name: "Silvia Santos", points: "210pts", image: fotousuario },
-                    { rank: 11, name: "Tom Holland", points: "189pts", image: TomHolland }].map((user, index) => (
+
+                    {[{ rank: rank.rankPosicao, name: user.nome, points: user.rank, image: GrandEwe },
+                    { rank: rank.rankPosicao, name: user.nome, points: user.rank, image: fotousuario },
+                    { rank: rank.rankPosicao, name: user.nome, points: user.rank, image: TomHolland }].map((user, index) => (
 
                       <div key={index} style={{ display: 'flex', alignItems: 'center', height: '6.5vh', backgroundColor: index % 2 === 0 ? '#F9F9F9' : '#D9D9D9' }}>
 
@@ -162,19 +165,27 @@ const Perfil = () => {
                         <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333', marginRight: '1vh' }}>{user.points}</span>
                       </div>
                     ))}
+                  </div> */}
+
+
+                  <div style={{ width: '30vh', height: '19.5vh', marginLeft: '25vh', border: '1px solid #E0E0E0', overflow: 'hidden' }}>
+
+                    {rankAlunos.map((dados, index) => (
+
+                      <div key={index} style={{ display: 'flex', alignItems: 'center', height: '6.5vh', backgroundColor: index % 2 === 0 ? '#F9F9F9' : '#D9D9D9' }}>
+
+                        <span style={{ width: '20%', textAlign: 'center', fontWeight: 'bold', color: '#333', }}>#{dados.posicao}</span>
+                        <img src={dados.caminho_imagem} alt={user.name} style={{ width: '30px', height: '30px', borderRadius: '50%' }} />
+                        <span style={{ flex: 1, fontSize: '12px', color: '#333' }}>{dados.nome_aluno}</span>
+                        <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333', marginRight: '1vh' }}>{dados.pontos_aluno}Pts</span>
+                      </div>
+                    ))}
                   </div>
+
+
+
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
